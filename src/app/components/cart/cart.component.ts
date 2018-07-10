@@ -16,10 +16,7 @@ export class CartComponent implements OnInit {
   constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
-    var key = this.storage.get(CART_KEY);
-    if(key != null){
-      this.productsInCart = this.storage.get(CART_KEY);
-    }
+      this.productsInCart = this.storage.get(CART_KEY) || [];
   }
 
   public addProductToCart(product: Product){
