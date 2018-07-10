@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Welcome</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+      <div ng2-carouselamos [width]="900"  [items]="items" [$item]="itemTemplate" [$prev]="prevTemplate" [$next]="nextTemplate"
+        (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index"></div>
+  
+        <ng-template #prevTemplate>
+          <img width="50px" src="../../../assets/img/prev.png" >
+        </ng-template>
+  
+        <ng-template #nextTemplate>
+          <img width="50px" src="../../../assets/img/next.png" >
+        </ng-template>
+  
+        <ng-template let-item let-i="index" #itemTemplate>
+          <div style="min-width: 500px">
+            <div *ngIf="i === selectedIndex">
+                <img width="900px" src="{{ item.name }}" >
+            </div>
+          </div>
+        </ng-template>
+    </div>
+
+
+<div class="container">    
+  <div class="row">
+    <!-- Container for sidebar(s) + page content -->
+    <div class="col-sm-2">
+      <ng-sidebar-container style="height: 200vh;">
+        <!-- A sidebar -->
+        <ng-sidebar   [(opened)]="_opened" position="fixed">
+          <h4>Category</h4>
+          <ul>
+            <li>
+              <a href="#">Clothings</a>
+            </li>
+            <li>
+              <a href="#">Shoes</a>
+            </li>
+            <li>
+              <a href="#">Sports</a>
+            </li>
+            <li>
+              <a href="#">Laptops</a>
+            </li>
+            <li>
+              <a [routerLink]="['/products']" href=""> Products</a>
+            </li>
+          </ul>
+        </ng-sidebar>
+      </ng-sidebar-container>
+    </div>
+    <div class="col-sm-8">
+      <app-products></app-products>
+    </div>
+
+    <div class="col-sm-2">
+        <app-cart></app-cart> 
+    </div>
+  </div>
+</div>

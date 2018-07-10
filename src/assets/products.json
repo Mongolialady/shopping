@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "productId": 11,
+      "productName": "HP laptop",
+      "vendorName": "Target",
+      "price": 785,
+	    "category": "Electronics",
+	    "imageUrl": "",
+	    "starRating": 5
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<article>
+  <div *ngIf="clothing">
+    <h4>{{clothing.name}} details</h4>
+
+    <div>
+      <label for="nametext">Name</label>
+      <input type="text" id="nametext" [(ngModel)]="clothing.name"
+    </div>
+  </div>
+</article>

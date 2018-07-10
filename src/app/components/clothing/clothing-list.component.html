@@ -1,0 +1,10 @@
+<article>
+    <h4>Clothing Department</h4>
+    <ul class="clothings">
+        <li *ngFor="let clothing of clothings">
+            <a href="" [routerLink]="['/clothings', clothing.id]">
+                {{clothing.id}}, {{clothing.name}}
+            </a>
+        </li>
+    </ul>
+</article>

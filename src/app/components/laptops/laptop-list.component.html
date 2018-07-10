@@ -1,0 +1,11 @@
+<article>
+    <h4> Laptop Department </h4>>
+
+    <ul class="laptops">
+        <li *ngFor="let laptop of laptops">
+            <a href="" [routerLink]="['/laptops', laptop.id]">
+                {{ laptop.id }}. {{ laptop.name }}
+            </a>
+        </li>
+    </ul>
+</article>
