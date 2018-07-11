@@ -17,6 +17,7 @@ import { ProductComponent } from './components/products/product.component';
 import { ProductListComponent } from './components/products/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
     ProductListComponent,
     CartComponent,
     HeaderComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    StorageServiceModule
+    StorageServiceModule,
   ],
   providers: [LaptopService, ProductService],
   bootstrap: [AppComponent]

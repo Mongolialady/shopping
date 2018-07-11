@@ -1,0 +1,23 @@
+<h5>Product Available for checkout</h5>
+
+<table class="table table-bordered">
+  <thead style="background-color:#17a2b8;color:white;font-size: 14px;font-weight: normal !important">
+    <tr>
+      <th>SNo</th>
+      <th>Product Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productsInCart;let i=index">
+      <td>{{i+1}}</td>
+      <td>{{product.productName}}
+        <img style="height: 100px;" src="{{product.imageUrl}}" alt="" />
+      </td>
+      <td>{{product.price}}</td>
+    </tr>
+  </tbody>
+</table>
+  <p>Total Price: {{totalPrice()}}</p>
+
+  <button type="button" class="btn btn-primary"> Send Email </button>

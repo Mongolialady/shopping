@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+
 import { Product, ProductService } from "./product.service";
 import {CartComponent} from '../cart/cart.component'
+import {eventbus} from "../event/eventbus";
+
 
 @Component({
   selector: 'app-products',
@@ -24,8 +27,12 @@ export class ProductListComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
+
   public addProductToCart(product:Product){
-    this.cart.addProductToCart(product);
+    eventbus.publish("addProduct",product);
   }
 
+  public removeProductFromCart(product: Product) {
+    eventbus.publish("removeProductFromCart", product);
+  }
 }

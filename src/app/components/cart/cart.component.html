@@ -2,22 +2,24 @@
   <h4>Shopping Cart</h4>
   <img src="../../../assets/img/shopping-cart.png" style="width:150px">
   <hr/>
-  <div class="cart">
+  <div class="cart"  style="width:150px">
     <div class="panel panel-default">
       <div class="panel-body">
+          <div class="alert alert-info" *ngIf="productsInCart.length==0">Cart is empty</div>
+          <div class="alert alert-info" *ngIf="productsInCart.length>0" style="font-size:12px"> {{productsInCart.length}} items in the cart</div>
         <div class="cart-body">
           <div class="cart-item" *ngFor="let product of productsInCart">
             <div style="display: inline">
-              {{product.name}}: {{product.price}}
+              {{product.productName}}: ${{product.price}}
             </div>
           </div>
         </div>
-
-        <div class="alert alert-info" *ngIf="productsInCart.length==0">Cart is empty</div>
-        <div class="alert alert-info" *ngIf="productsInCart.length>0"> You have {{productsInCart.length}} items in the cart</div>
       </div>
     </div>
   </div>
   <div>
+    <a href="checkout">
+     <button type="button" class="btn btn-warning" style="font-size:12px;float:right">Checkout</button>
+  </a>
   </div>
 </div>

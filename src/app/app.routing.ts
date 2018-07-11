@@ -5,6 +5,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { ProductListComponent } from "./components/products/product-list.component";
 import { ProductComponent } from "./components/products/product.component";
 import { PageNotFoundComponent } from './page-not-found.component';
+import { CheckoutComponent } from "./components/checkout/checkout.component";
 
 @NgModule({
     exports: [RouterModule],
@@ -14,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
             //{ component: HomeComponent, path: '' },
             { component: ProductListComponent, path: 'products' },
             { component: ProductComponent, path: 'products/:id' },
+            { component: CheckoutComponent, path: 'checkout' },
             //{ component: PageNotFoundComponent, path: '**', pathMatch: 'full'}
         ])
     ]
@@ -21,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 export class AppRoutingModule{
     ProductListComponent;
-    ProductComponent
+    ProductComponent;
+    CheckoutComponent
 }
 
 export const routableComponents = [

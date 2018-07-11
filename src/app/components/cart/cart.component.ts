@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Product } from '../products/product.service';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { CONFIG } from '../../config'
+import { eventbus } from "../event/eventbus";
 
-const CART_KEY = 'pure-awesomeness';
 
 @Component({
   selector: 'app-cart',
@@ -13,27 +14,34 @@ export class CartComponent implements OnInit {
 
   private productsInCart: Product[];
 
-  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService) { }
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService ) { }
 
   ngOnInit() {
-      this.productsInCart = this.storage.get(CART_KEY) || [];
-  }
+      this.storage.set(CONFIG.CART_KEY, []);
+      this.productsInCart =  [];
+      
+      eventbus("addProduct").subscribe((o)=> { 
+       this.addProductToCart(o);
+      });
+      eventbus("removeProductFromCart").subscribe((o) => {
+        this.removeProductFromCart(o);
+      });
+   }
 
   public addProductToCart(product: Product){
     console.log("addProductToCart...");
 
-    var cartItemInSession = this.storage.get(CART_KEY);
-    if(cartItemInSession == null){
-      var products = [];
-      products.push(product);
-      this.storage.set(CART_KEY, products);
-    } else {
-      var index = cartItemInSession.findIndex(item => item.productId == product.productId);
-      if(index == -1){
-        cartItemInSession.push(product);
-        this.storage.set(CART_KEY, cartItemInSession);
-      } 
-      this.productsInCart.push(product);
+    var cartItemInSession = this.storage.get(CONFIG.CART_KEY) || [];
+    var index = cartItemInSession.findIndex(item => item.productId == product.productId);
+    if (index == -1) {
+      cartItemInSession.push(product);
+      this.storage.set(CONFIG.CART_KEY, cartItemInSession);
     }
+    this.productsInCart = cartItemInSession;
+  }
+
+  public removeProductFromCart(product: Product) {
+    console.log("remove product from cart ....");
+    this.productsInCart = this.productsInCart.filter(item => item.productId != product.productId);
   }
 }
