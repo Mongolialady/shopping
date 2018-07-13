@@ -6,6 +6,7 @@ import { ProductListComponent } from "./components/products/product-list.compone
 import { ProductComponent } from "./components/products/product.component";
 import { PageNotFoundComponent } from './page-not-found.component';
 import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { EmailComponent } from "./components/email/email.component";
 
 @NgModule({
     exports: [RouterModule],
@@ -16,6 +17,7 @@ import { CheckoutComponent } from "./components/checkout/checkout.component";
             { component: ProductListComponent, path: 'products' },
             { component: ProductComponent, path: 'products/:id' },
             { component: CheckoutComponent, path: 'checkout' },
+            { component: EmailComponent, path: 'email' },
             //{ component: PageNotFoundComponent, path: '**', pathMatch: 'full'}
         ])
     ]

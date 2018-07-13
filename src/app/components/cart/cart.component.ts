@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Product } from '../products/product.service';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+
+
 import { CONFIG } from '../../config'
 import { eventbus } from "../event/eventbus";
 
@@ -17,9 +19,7 @@ export class CartComponent implements OnInit {
   constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService ) { }
 
   ngOnInit() {
-      this.storage.set(CONFIG.CART_KEY, []);
-      this.productsInCart =  [];
-      
+      this.productsInCart =   this.storage.get(CONFIG.CART_KEY) || [];
       eventbus("addProduct").subscribe((o)=> { 
        this.addProductToCart(o);
       });

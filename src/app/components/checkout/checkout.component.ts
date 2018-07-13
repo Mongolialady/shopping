@@ -16,16 +16,18 @@ export class CheckoutComponent implements OnInit {
   constructor(private router: Router,@Inject(SESSION_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
+    console.log("checkout", this.storage);
+
     this.productsInCart = this.storage.get(CONFIG.CART_KEY) || [];
     console.log(this.productsInCart.length);
   }
 
   public totalPrice(): number {
+      let total=0;
       this.productsInCart.forEach(item => {
-        console.log("item.price" + item.price);
-        console.log(this.total);
-        this.total = this.total + item.price;
+         total = total + item.price;
       });
+      this.total=total;
       console.log(this.total);
     return this.total;
   }

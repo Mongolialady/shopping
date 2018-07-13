@@ -18,6 +18,8 @@ import { ProductListComponent } from './components/products/product-list.compone
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { EmailComponent } from './components/email/email.component';
+import { EmailService } from './components/email/email.service';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CartComponent,
     HeaderComponent,
     CheckoutComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     AppRoutingModule,
     StorageServiceModule,
   ],
-  providers: [LaptopService, ProductService],
+  providers: [LaptopService, ProductService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
