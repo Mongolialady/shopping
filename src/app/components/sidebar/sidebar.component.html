@@ -1,0 +1,34 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container class="sidebar">
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened" position="fixed">
+    <a [routerLink]="['/products']" href="">
+      <h5 style="color:grey">All Products</h5>
+    </a>
+    <ul class="sidebar li">
+      <li>
+        <a href="#" style="color:grey">Laptops</a>
+      </li>
+      <li>
+        <a href="#" style="color:grey">Desktops</a>
+      </li>
+      <li>
+        <a href="#" style="color:grey">Monitors</a>
+      </li>
+      <li>
+        <a href="#" style="color:grey">TV and Video</a>
+      </li>
+      <li>
+        <a href="#" style="color:grey">Accessories</a>
+      </li>
+      <li>
+        <div style="margin-top:20px">
+          <div style="font-weight: bold;">Price</div>
+          <input type="text" name="min" placeholder="$Min" class="text" [(ngModel)]="min" />
+          <input type="text" name="max" placeholder="$Max" class="text" [(ngModel)]="max" />
+          <button type="button" class="button" (click)="getByPrice()">Go</button>
+        </div>
+      </li>
+    </ul>
+  </ng-sidebar>
+</ng-sidebar-container>

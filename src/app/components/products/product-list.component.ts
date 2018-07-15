@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { DOCUMENT } from '@angular/common';
 
 
 import { Product, ProductService } from "./product.service";
@@ -20,7 +21,8 @@ export class ProductListComponent implements OnInit {
   products: Observable<Product[]>;
   private cart: CartComponent;
   
-  constructor(private productService: ProductService) { 
+  constructor(@Inject(DOCUMENT) private document: Document, private productService: ProductService) { 
+    console.log("this.document.location.href: " + this.document.location.href);
   }
 
   ngOnInit() {

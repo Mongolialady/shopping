@@ -20,6 +20,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { EmailComponent } from './components/email/email.component';
 import { EmailService } from './components/email/email.service';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
@@ -34,6 +39,10 @@ import { EmailService } from './components/email/email.service';
     HeaderComponent,
     CheckoutComponent,
     EmailComponent,
+    CarouselComponent,
+    SidebarComponent,
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

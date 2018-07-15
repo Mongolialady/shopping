@@ -13,12 +13,12 @@ import { EmailComponent } from "./components/email/email.component";
     imports: [
         RouterModule.forRoot([
             //{ path: '', pathMatch: 'full', redirectTo: 'products' },
-            //{ component: HomeComponent, path: '' },
+            { component: HomeComponent, path: '' },
             { component: ProductListComponent, path: 'products' },
             { component: ProductComponent, path: 'products/:id' },
             { component: CheckoutComponent, path: 'checkout' },
             { component: EmailComponent, path: 'email' },
-            //{ component: PageNotFoundComponent, path: '**', pathMatch: 'full'}
+            { component: PageNotFoundComponent, path: '**', pathMatch: 'full'}
         ])
     ]
 })

@@ -1,5 +1,5 @@
 .cart{
-    width: 70%;
+    margin:0 10px;
 }
 .cart-body {
     margin-bottom: 0.7em;
@@ -34,4 +34,15 @@
     vertical-align: middle;
   }
 
-  
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    color:white;
+    font-size: 20px;
+}

@@ -9,16 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  items: Array<any> = [];
-  private _opened: boolean = true;
 
-  constructor() { 
-    this.items = [
-      {name: "../../assets/img/shopping1.tif"},
-      {name: "../../assets/img/shopping2.jpg"},
-      {name: "../../assets/img/shopping3.jpg"}
-    ]
-  }
+  constructor() { }
 
   ngOnInit() {
   }

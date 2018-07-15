@@ -1,19 +1,27 @@
-<article>
-    <h4> Products Available </h4>
-
+<article class="container">
     <div class="row">
-        <div *ngFor="let product of products | async">
-        <div class="col-sm-4">
-            <div class="card" style="width:220px">
-                <img class="card-img-bottom" src={{product.imageUrl}} alt="Card image" style="width: 200px;">
-                <div class="card-body">
-                  <h6 class="card-title">{{ product.productName }} </h6>
-                  <p class="card-text" style="font-size:12px">${{ product.price }}</p>
-                  <button type="button" class="btn btn-primary" (click)="addProductToCart(product)" style="font-size:12px;margin-bottom:3px">Add To Cart</button><br/>
-                  <button type="button" class="btn btn-primary" (click)="removeProductFromCart(product)" style="font-size:12px">Remove From Cart</button>
+        <div class="col-sm-2">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="col-sm-10">
+            <h4 style="margin-left: 300px;"> All Products </h4><br>
+            <div class="row">
+                <div *ngFor="let product of products | async">
+                    <div class="col-sm-6">
+                        <div class="card" style="width:210px">
+                            <img class="card-img-bottom" src={{product.imageUrl}} alt="Card image" style="width: 200px;">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ product.productName }} </h6>
+                                <p class="card-text" style="font-size:12px">${{ product.price }}</p>
+                                <button type="button" class="btn btn-primary" (click)="addProductToCart(product)" style="font-size:12px;margin-bottom:3px">Add To Cart</button>
+                                <br/>
+                                <button type="button" class="btn btn-primary" (click)="removeProductFromCart(product)" style="font-size:12px">Remove From Cart</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </article>

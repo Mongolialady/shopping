@@ -26,6 +26,9 @@ export class CartComponent implements OnInit {
       eventbus("removeProductFromCart").subscribe((o) => {
         this.removeProductFromCart(o);
       });
+      eventbus("checkoutSucess").subscribe(() => {
+        this.storage.set(CONFIG.CART_KEY, []);
+      });
    }
 
   public addProductToCart(product: Product){
