@@ -8,16 +8,21 @@ import { EmailService, EmailAccount } from './email.service';
 })
 export class EmailComponent implements OnInit {
   emailAccount: EmailAccount;
+  message: string;
 
   constructor(private emailService: EmailService) { 
     this.emailAccount = new EmailAccount();
   }
 
   ngOnInit() {
-    
+    this.message = 'Please input your email address, and press "Confirm" to finish checkout'
   }
 
   sendEmail(){
     this.emailService.sendEmail(this.emailAccount);
+  }
+
+  backToHome() {
+    this.emailService.backToHome();
   }
 }

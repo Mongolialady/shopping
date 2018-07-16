@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { Product, ProductService } from "./product.service";
 import {CartComponent} from '../cart/cart.component'
 import {eventbus} from "../event/eventbus";
+import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 
 
 @Component({
@@ -20,15 +21,30 @@ import {eventbus} from "../event/eventbus";
 export class ProductListComponent implements OnInit {
   products: Observable<Product[]>;
   private cart: CartComponent;
+  private category: string;
+  private min: any;
+  private max: any;
   
-  constructor(@Inject(DOCUMENT) private document: Document, private productService: ProductService) { 
-    console.log("this.document.location.href: " + this.document.location.href);
+  constructor( private route: ActivatedRoute, private productService: ProductService) { 
   }
+
+  public onPriceSearchHandler(event){
+    let min:string= event[0];
+    let max:string =event[1];
+    this.products = this.productService.getProducts(this.category, min, max);
+  }
+
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.category = this.route.snapshot.queryParams["category"] || "";
+   
+    this.route
+      .queryParams
+      .subscribe(params => {
+          this.category = params['category'] || "";
+          this.products = this.productService.getProducts(this.category, null, null);
+      });
   }
-
 
   public addProductToCart(product:Product){
     eventbus.publish("addProduct",product);

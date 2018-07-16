@@ -36,10 +36,8 @@ export class CartComponent implements OnInit {
 
     var cartItemInSession = this.storage.get(CONFIG.CART_KEY) || [];
     var index = cartItemInSession.findIndex(item => item.productId == product.productId);
-    if (index == -1) {
-      cartItemInSession.push(product);
-      this.storage.set(CONFIG.CART_KEY, cartItemInSession);
-    }
+    cartItemInSession.push(product);
+    this.storage.set(CONFIG.CART_KEY, cartItemInSession);
     this.productsInCart = cartItemInSession;
   }
 

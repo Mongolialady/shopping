@@ -7,27 +7,27 @@
     </a>
     <ul class="sidebar li">
       <li>
-        <a href="#" style="color:grey">Laptops</a>
+        <a [routerLink]="['/products']" [queryParams]="{category: 'Laptop'}" href="" style="color:grey">Laptops</a>
       </li>
       <li>
-        <a href="#" style="color:grey">Desktops</a>
+        <a [routerLink]="['/products']" [queryParams]="{category: 'Desktop'}" href="" style="color:grey">Desktops</a>
       </li>
       <li>
-        <a href="#" style="color:grey">Monitors</a>
+        <a [routerLink]="['/products']" [queryParams]="{category: 'Monitor'}" href="" style="color:grey">Monitors</a>
       </li>
       <li>
-        <a href="#" style="color:grey">TV and Video</a>
+        <a [routerLink]="['/products']" [queryParams]="{category: 'TV&Video'}" href="" style="color:grey">TV and Video</a>
       </li>
       <li>
-        <a href="#" style="color:grey">Accessories</a>
+        <a [routerLink]="['/products']" [queryParams]="{category: 'Accessory'}" href="#" style="color:grey">Accessories</a>
       </li>
       <li>
-        <div style="margin-top:20px">
-          <div style="font-weight: bold;">Price</div>
-          <input type="text" name="min" placeholder="$Min" class="text" [(ngModel)]="min" />
-          <input type="text" name="max" placeholder="$Max" class="text" [(ngModel)]="max" />
-          <button type="button" class="button" (click)="getByPrice()">Go</button>
-        </div>
+          <div style="margin-top:20px">
+            <div style="font-weight: bold;">Price</div>
+            <input type="text" name="min" placeholder="$Min" class="text" [(ngModel)]="min" />
+            <input type="text" name="max" placeholder="$Max" class="text" [(ngModel)]="max" />
+            <button type="button" class="button" (click)="getByPrice()">Go</button>
+          </div>
       </li>
     </ul>
   </ng-sidebar>

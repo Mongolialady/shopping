@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  @Output() onPriceSearch: EventEmitter<any> = new EventEmitter();
+
+
   private _opened: boolean = true;
   private min: any;
   private max: any;
@@ -16,6 +19,6 @@ export class SidebarComponent implements OnInit {
   }
 
   getByPrice(){
-    
+    this.onPriceSearch.emit([this.min, this.max])
   }
 }

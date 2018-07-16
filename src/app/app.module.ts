@@ -25,6 +25,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductSearchSidebarComponent } from './components/product-search-sidebar/product-search-sidebar.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { RouterModule, Routes } from '@angular/router';
     CarouselComponent,
     SidebarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductSearchSidebarComponent
   ],
   imports: [
     BrowserModule,

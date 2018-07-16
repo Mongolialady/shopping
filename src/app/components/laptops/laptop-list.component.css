@@ -1,7 +1,0 @@
-.characters {
-    list-style-type: none;
-}
-    
-*.characters li {
-    padding: 4px;cursor: pointer;
-}

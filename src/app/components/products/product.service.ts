@@ -18,16 +18,27 @@ export class Product {
 
 @Injectable()
 export class ProductService {
-
     constructor(private http: Http){}
 
     getProduct(id: number){
-        return this.getProducts().map(products => products.find(product => product.productId === id));
+        return this.getProducts(null, null, null).map(products => products.find(product => product.productId === id));
     }
 
-    getProducts(){
+    getProducts(category: string, min: any, max: any){
+        let queries=[];
+        if (!!min){
+            queries.push("min=" +min);
+        }
+
+        if (!!max){
+            queries.push("max=" +max); 
+        }
+        
+        let url:string=productsUrl + "/" + category;
+        url =url +"?" + queries.join("&");
+
         return this.http
-            .get(productsUrl)
+            .get(url)
             .map((response: Response) => <Product[]>response.json());
     }
 }

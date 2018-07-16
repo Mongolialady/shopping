@@ -1,7 +1,7 @@
 import { Http, Headers } from '@angular/http';
 
 import { CONFIG } from '../../config';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { eventbus } from "../event/eventbus";
 import { Router } from '@angular/router';
@@ -14,7 +14,6 @@ export class EmailAccount {
 
 @Injectable()
 export class EmailService {
-    message: String = null;
 
     constructor(private http: Http, private router: Router) { }
 
@@ -27,7 +26,6 @@ export class EmailService {
             if (data.json().success) {
                 console.log('Sent successfully');
                 eventbus.publish("checkoutSucess");
-                this.message = "Thanks for purchase";
             }
         });
     }
